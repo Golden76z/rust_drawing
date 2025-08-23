@@ -19,14 +19,15 @@ impl Rectangle {
 
 impl Drawable for Rectangle {
     fn draw(&self, image: &mut raster::Image) {
-        // ab -> bc -> ca
-        let ab = Line::new(&self.a, &self.b, &self.color);
-        let bc = Line::new(&self.b, &self.c, &self.color);
-        let ca = Line::new(&self.a, &self.c, &self.color);
-        let ad: Line = Line::new(&self.a, &self.c, &self.color);
+        // ab -> bc -> cd -> ad
+        let ab = Line::new(&self.top_left, &Point::new(self.bottom_right.x, self.top_left.y), &self.color);
+        let bc = Line::new(&Point::new(self.bottom_right.x, self.top_left.y), &self.bottom_right, &self.color);
+        let cd = Line::new(&self.bottom_right, &Point::new(self.top_left.x, self.bottom_right.y), &self.color);
+        let ad: Line = Line::new(&Point::new(self.top_left.x, self.bottom_right.y), &self.top_left, &self.color);
 
         ab.draw(image);
         bc.draw(image);
-        ca.draw(image);
+        cd.draw(image);
+        ad.draw(image);
     }
 }

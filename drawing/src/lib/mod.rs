@@ -10,7 +10,7 @@ pub mod color;
 // Optionally re-export for convenience
 pub use point::Point;
 pub use line::Line;
-// pub use circle::Circle;
+pub use circle::Circle;
 pub use triangle::Triangle;
 pub use rectangle::Rectangle;
 pub use traits::*;
