@@ -1,7 +1,14 @@
+use rand::Rng;
+use raster::Color;
+use crate::lib::color::{random_color};
+use crate::lib::{Displayable, Drawable};
+
 // Struct to create & randomize a new Point
+#[derive(Debug, Clone)]
 pub struct Point {
-    x: i32,
-    y: i32,
+    pub x: i32,
+    pub y: i32,
+    pub color:  Color,
 }
 
 impl Point {
@@ -10,14 +17,27 @@ impl Point {
         Point {
             x:  x,
             y:  y,
+            color: random_color()
         }
     }
 
     // Method to create a new Point with random coordinates given the canva size
     pub fn random(width: i32, height: i32) -> Self {
+        let mut rng = rand::rng();
+        let x: i32 = rng.random_range(0..width);
+        let y: i32 = rng.random_range(0..height);
+
         Point {
-            x:  1,
-            y:  1,
+            x:  x,
+            y:  y,
+            color: random_color(),
         }
+    }
+}
+
+// Implementing draw functionality for the Point
+impl Drawable for Point {
+    fn draw(&self, image: &mut raster::Image) {
+        image.display(self.x, self.y, self.color.clone());
     }
 }
