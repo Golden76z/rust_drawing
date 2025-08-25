@@ -1,7 +1,7 @@
 use raster::Image;
 
-mod lib;
-use lib::{Point, Line, Triangle, Rectangle, Circle, Drawable};
+mod geometrical_shapes;
+use geometrical_shapes::*;
 
 fn main() {
     let mut image = Image::blank(1000, 1000);
@@ -13,10 +13,10 @@ fn main() {
     let rectangle = Rectangle::new(&Point::new(150, 150), &Point::new(50, 50));
     rectangle.draw(&mut image);
 
-    let triangle = Triangle::new (
-            &Point::new(500, 500),
-            &Point::new(250, 700),
-            &Point::new(700, 800),
+    let triangle = Triangle::new(
+        &Point::new(500, 500),
+        &Point::new(250, 700),
+        &Point::new(700, 800),
     );
     triangle.draw(&mut image);
 

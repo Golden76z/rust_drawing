@@ -1,23 +1,23 @@
+use crate::geometrical_shapes::color::random_color;
+use crate::geometrical_shapes::{Displayable, Drawable};
 use rand::Rng;
 use raster::Color;
-use crate::lib::color::{random_color};
-use crate::lib::{Displayable, Drawable};
 
 // Struct to create & randomize a new Point
 #[derive(Debug, Clone)]
 pub struct Point {
     pub x: i32,
     pub y: i32,
-    pub color:  Color,
+    pub color: Color,
 }
 
 impl Point {
     // Method to create a new point with given coordinates
     pub fn new(x: i32, y: i32) -> Self {
         Point {
-            x:  x,
-            y:  y,
-            color: random_color()
+            x: x,
+            y: y,
+            color: random_color(),
         }
     }
 
@@ -28,8 +28,8 @@ impl Point {
         let y: i32 = rng.random_range(0..height);
 
         Point {
-            x:  x,
-            y:  y,
+            x: x,
+            y: y,
             color: random_color(),
         }
     }

@@ -1,5 +1,5 @@
+use crate::geometrical_shapes::{Displayable, Drawable, point::Point, random_color};
 use raster::{Color, Image};
-use crate::lib::{point::Point, random_color, Displayable, Drawable};
 
 // Line define structure used for line
 pub struct Line {
@@ -12,15 +12,15 @@ pub struct Line {
 impl Line {
     pub fn new(a: &Point, b: &Point, color: &Color) -> Self {
         Line {
-            start:  a.clone(),
-            end:    b.clone(),
-            color:  color.clone(),
+            start: a.clone(),
+            end: b.clone(),
+            color: color.clone(),
         }
     }
 
-    pub fn random(w: i32,h: i32) -> Self {
-        Line{
-            start: Point::random(w,h),
+    pub fn random(w: i32, h: i32) -> Self {
+        Line {
+            start: Point::random(w, h),
             end: Point::random(w, h),
             color: random_color(),
         }
@@ -59,3 +59,4 @@ impl Drawable for Line {
         }
     }
 }
+

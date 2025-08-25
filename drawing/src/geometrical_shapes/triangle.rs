@@ -1,7 +1,7 @@
-use crate::lib::{point::Point, random_color};
-use crate::lib::traits::*;
-use crate::lib::line::Line;
-use raster::{Color};
+use crate::geometrical_shapes::line::Line;
+use crate::geometrical_shapes::traits::*;
+use crate::geometrical_shapes::{point::Point, random_color};
+use raster::Color;
 
 pub struct Triangle {
     a: Point,
@@ -33,3 +33,4 @@ impl Drawable for Triangle {
         ca.draw(image);
     }
 }
+

@@ -11,11 +11,10 @@ impl Displayable for Image {
     }
 }
 
-
 pub trait Drawable {
     fn draw(&self, image: &mut raster::Image);
 
-    fn color(&self) -> raster::Color {
-        raster::Color::rgb(255, 0, 0)
-    }
+    // fn color(&self) -> raster::Color {
+    //     raster::Color::rgb(255, 0, 0)
+    // }
 }
